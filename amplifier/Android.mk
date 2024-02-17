@@ -27,17 +27,20 @@ LOCAL_SHARED_LIBRARIES := \
     libtinycompress
 
 LOCAL_C_INCLUDES += \
-    $(call include-path-for,audio-route) \
-    $(call project-path-for,qcom-audio)/hal \
-    $(call project-path-for,qcom-audio)/hal/msm8974 \
-    $(call project-path-for,qcom-audio)/hal/audio_extn
+    $(call include-path-for, audio-route) \
+    $(call include-path-for, audio-utils) \
+    external/tinycompress/include \
+    vendor/qcom/opensource/audio-hal/primary-hal/hal \
+    vendor/qcom/opensource/audio-hal/primary-hal/hal/msm8974 \
+    vendor/qcom/opensource/audio-hal/primary-hal/hal/audio_extn \
+    $(TARGET_OUT_INTERMEDIATES)/kernel/msm-4.14/usr/techpack/audio/include
 
 LOCAL_CFLAGS += -DTA_DEBUG -DDEBUG_SHOW_VALUES -DDEBUG_RUN_ONLY_READ_TA
 
 LOCAL_SRC_FILES := audio_amplifier.c
 LOCAL_MODULE := audio_amplifier.$(TARGET_BOARD_PLATFORM)
 LOCAL_HEADER_LIBRARIES := \
-    generated_kernel_headers \
+    qti_kernel_headers \
     libhardware_headers
 
 LOCAL_MODULE_RELATIVE_PATH := hw

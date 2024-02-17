@@ -31,13 +31,13 @@
 #include <unistd.h>
 
 #include <asm-generic/errno-base.h>
-#include <audio_hw.h>
+#include "audio_hw.h"
 #include <hardware/audio_amplifier.h>
 #include <hardware/hardware.h>
 #include <log/log_main.h>
 #include <malloc.h>
-#include <platform.h>
-#include <platform_api.h>
+#include "platform.h"
+#include "platform_api.h"
 
 #define UNUSED __attribute__((unused))
 
